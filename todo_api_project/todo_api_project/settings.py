@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'todos.apps.TodosConfig',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders', #CORS
 ]
 
 REST_FRAMEWORK = {
@@ -50,7 +51,10 @@ REST_FRAMEWORK = {
     )
 }
 
+CORS_ALLOWED_ORIGINS = secrets.CORS_ALLOWED_ORIGINS
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #for cross platform http requests, CORS
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
