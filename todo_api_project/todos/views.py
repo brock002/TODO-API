@@ -18,8 +18,8 @@ class TodoViewSet(viewsets.ModelViewSet):
         return Todo.objects.filter(created_by=self.request.user)
 
     def get_serializer_class(self):
-        if self.request.method == 'PUT' or self.request.method == 'PATCH':
-            return TodoUpdateSerializer
+        if self.request.method == 'PUT' or self.request.method == 'PATCH' or self.request.method == 'GET':
+            return TodoBasicSerializer
         return TodoDefaultSerializer
 
     def create(self, request):

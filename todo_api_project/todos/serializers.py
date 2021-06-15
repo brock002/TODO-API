@@ -24,7 +24,7 @@ class TodoDefaultSerializer(serializers.ModelSerializer):
         model = Todo
         fields = '__all__'
 
-class TodoUpdateSerializer(serializers.ModelSerializer):
+class TodoBasicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
         exclude = ['created_by']
